@@ -1,6 +1,15 @@
-<div class="container">
+<div class="navbar">
+  <div class="navbar-left">
+    <button class="btn active" routerLink="/home">HOME</button>
+</div>
+</div>
+<div class="navbar-center">
+  <img src="assets/jdstreetwear.png" alt="Logo" class="title-logo" style="height: 150px; ">
+</div>
+
+<div class="container-signIn">
     <div class="form-container">
-      <h2>Login</h2>
+      <h2 class="main-title">Login</h2>
       <form (ngSubmit)="login()">
         <div class="form-group">
           <label for="email">Email</label>

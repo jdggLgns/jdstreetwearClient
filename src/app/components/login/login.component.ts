@@ -19,14 +19,14 @@ export class LoginComponent {
           case 'admin':
             this.router.navigate(['/admin']);
             break;
-          case 'customer':
-            this.router.navigate(['/customer']);
-            break;
           case 'employee':
             this.router.navigate(['/employee']);
             break;
+          case 'customer':
+            this.router.navigate(['/customer']);
+            break;
           default:
-            this.router.navigate(['/']);
+            this.router.navigate(['/login']);
             break;
         }
       },

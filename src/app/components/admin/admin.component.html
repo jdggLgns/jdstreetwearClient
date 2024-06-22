@@ -1,4 +1,28 @@
-<div class="container">
-    <h3>Título 3</h3>
+<div class="navbar">
+  <div class="navbar-left">
+    <button class="btn active" routerLink="/admin-dashboard">Dashboard</button>
+    <button class="btn" routerLink="/employees">Employees</button>
+    <button class="btn" routerLink="/reports">Reports</button>
   </div>
-  
+  <div class="navbar-center">
+    <img src="assets/jdstreetwear.png" alt="Logo" class="center-logo">
+  </div>
+  <div class="navbar-right">
+    <img src="assets/user.png" alt="User Icon" class="user-icon">
+    <span>{{ userName }}</span>
+    <button class="btn-logout" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<h1 class="page-title">ADMIN DASHBOARD</h1>
+
+<div class="dashboard-content">
+  <div class="dashboard-item" routerLink="/employees">
+    <img src="assets/employees.png" alt="Employees" class="icon">
+    <p class="icon-text">Employees</p>
+  </div>
+  <div class="dashboard-item" routerLink="/reports">
+    <img src="assets/reports.png" alt="Reports" class="icon">
+    <p class="icon-text">Reports</p>
+  </div>
+</div>

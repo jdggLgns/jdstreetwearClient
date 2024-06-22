@@ -9,7 +9,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { CustomerComponent } from './components/customer/customer.component';
-import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { EmployeesComponent } from './employees/employees.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,8 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
     SigninComponent,
     AdminComponent,
     CustomerComponent,
-    AdminDashboardComponent
-  ],
+    EmployeesComponent,
+    EmployeeComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

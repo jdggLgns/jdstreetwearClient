@@ -13,12 +13,36 @@ export class AuthService {
 
   login(credentials: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/login`, credentials).pipe(
+      map((user: any) => {
+        const userData = {
+          firstName: user.firstName,
+          role: user.role,
+          email: user.email
+        };
+        localStorage.setItem('user', JSON.stringify(userData));
+        return userData;
+      }),
       catchError(this.handleError)
     );
   }
 
   register(user: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/register`, user, { observe: 'response' });
+    return this.http.post(`${this.baseUrl}/register`, user, { observe: 'response' }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  logout(): void {
+    localStorage.removeItem('user');
+  }
+
+  getUser(): any {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
+  }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('user');
   }
 
   private handleError(error: HttpErrorResponse) {
