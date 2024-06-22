@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="form-container">
+      <h2>Sign In</h2>
+      <form (ngSubmit)="register()">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" [(ngModel)]="user.firstName" name="firstName" class="form-control" required autocomplete="given-name">
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" [(ngModel)]="user.lastName" name="lastName" class="form-control" required autocomplete="family-name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" [(ngModel)]="user.email" name="email" class="form-control" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" [(ngModel)]="user.password" name="password" class="form-control" required autocomplete="new-password">
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+    </div>
+  </div>
+  
