@@ -20,6 +20,8 @@ import { EditEmployeeDialogComponent } from './components/edit-employee-dialog/e
 import { ProductsComponent } from './components/products/products.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { DiscountsComponent } from './components/discounts/discounts.component';
+import { AddProductDialogComponent } from './components/add-product-dialog/add-product-dialog.component';
+import { EditProductDialogComponent } from './components/edit-product-dialog/edit-product-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { DiscountsComponent } from './components/discounts/discounts.component';
     EditEmployeeDialogComponent,
     DiscountsComponent,
     OrdersComponent,
-    ProductsComponent
+    ProductsComponent,
+    AddProductDialogComponent,
+    EditProductDialogComponent
   ],
   imports: [
     BrowserModule,

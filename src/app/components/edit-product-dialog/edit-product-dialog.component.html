@@ -1,0 +1,58 @@
+<h2 class="dialog-title">Edit Product</h2>
+<form class="dialog-container">
+  <div class="dialog-form-group">
+    <label for="name">Product Name</label>
+    <input type="text" id="name" [(ngModel)]="product.name" name="name" class="dialog-form-control">
+  </div>
+  <div class="dialog-form-group">
+    <label for="productCode">Product Code</label>
+    <input type="text" id="productCode" [(ngModel)]="product.productCode" name="productCode" class="dialog-form-control">
+  </div>
+  <div class="dialog-form-group">
+    <label for="color">Color</label>
+    <input type="text" id="color" [(ngModel)]="product.color" name="color" class="dialog-form-control">
+  </div>
+  <div class="dialog-form-group">
+    <label for="size">Size</label>
+    <input type="text" id="size" [(ngModel)]="product.size" name="size" class="dialog-form-control">
+  </div>
+  <div class="dialog-form-group">
+    <label for="price">Price</label>
+    <input type="number" id="price" [(ngModel)]="product.price" name="price" class="dialog-form-control">
+  </div>
+  <div class="dialog-form-group">
+    <label for="type">Type</label>
+    <select id="type" [(ngModel)]="product.type" name="type" class="dialog-form-control">
+      <option value="tshirt">Tshirt</option>
+      <option value="sweatshirt">Sweatshirt</option>
+    </select>
+  </div>
+  <div class="dialog-form-group" *ngIf="product.type === 'tshirt' && product.tshirt">
+    <label for="sleeves">Sleeves</label>
+    <input type="checkbox" id="sleeves" [(ngModel)]="product.tshirt.sleeves" name="sleeves" class="dialog-form-control">
+  </div>
+  <div class="dialog-form-group" *ngIf="product.type === 'sweatshirt' && product.sweatshirt">
+    <label for="hood">Hood</label>
+    <input type="checkbox" id="hood" [(ngModel)]="product.sweatshirt.hood" name="hood" class="dialog-form-control">
+  </div>
+  <div class="dialog-form-group">
+    <label for="category">Category ID</label>
+    <input type="number" id="category" [(ngModel)]="product.category.id" name="category" class="dialog-form-control">
+  </div>
+  <div class="dialog-form-group">
+    <label for="discount">Discount ID</label>
+    <input type="number" id="discount" [(ngModel)]="product.discount.id" name="discount" class="dialog-form-control">
+  </div>
+  <div class="dialog-form-group">
+    <label for="supplier">Supplier ID</label>
+    <input type="number" id="supplier" [(ngModel)]="product.supplier.id" name="supplier" class="dialog-form-control">
+  </div>
+  <div class="dialog-form-group">
+    <label for="stock">Stock</label>
+    <input type="number" id="stock" [(ngModel)]="product.inventories[0].stock" name="stock" class="dialog-form-control">
+  </div>
+  <div class="dialog-button-group">
+    <button type="button" class="dialog-button dialog-button-secondary" (click)="onNoClick()">Cancel</button>
+    <button type="button" class="dialog-button" (click)="onSaveClick()">Save</button>
+  </div>
+</form>
