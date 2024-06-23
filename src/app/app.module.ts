@@ -17,6 +17,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { EditEmployeeDialogComponent } from './components/edit-employee-dialog/edit-employee-dialog.component';
+import { ProductsComponent } from './components/products/products.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { DiscountsComponent } from './components/discounts/discounts.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { EditEmployeeDialogComponent } from './components/edit-employee-dialog/e
     EmployeesComponent,
     EmployeeComponent,
     AddEmployeeDialogComponent,
-    EditEmployeeDialogComponent
+    EditEmployeeDialogComponent,
+    DiscountsComponent,
+    OrdersComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,34 @@
-<p>employee works!</p>
+<div class="navbar">
+    <div class="navbar-left">
+      <button class="btn active" routerLink="/employee-dashboard">Dashboard</button>
+      <button class="btn" routerLink="/products">Products</button>
+      <button class="btn" routerLink="/orders">Orders</button>
+      <button class="btn" routerLink="/discounts">Discounts</button>
+    </div>
+    <div class="navbar-center">
+      <img src="assets/jdstreetwear.png" alt="Logo" class="center-logo">
+    </div>
+    <div class="navbar-right">
+      <img src="assets/user.png" alt="User Icon" class="user-icon">
+      <span>{{ userName }}</span>
+      <button class="btn-logout" (click)="logout()">Logout</button>
+    </div>
+  </div>
+  
+  <h1 class="page-title">EMPLOYEE DASHBOARD</h1>
+  
+  <div class="dashboard-content">
+    <div class="dashboard-item" routerLink="/products">
+      <img src="assets/products.png" alt="Products" class="icon">
+      <p class="icon-text">Products</p>
+    </div>
+    <div class="dashboard-item" routerLink="/orders">
+      <img src="assets/orders.png" alt="Orders" class="icon">
+      <p class="icon-text">Orders</p>
+    </div>
+    <div class="dashboard-item" routerLink="/discounts">
+      <img src="assets/discounts.png" alt="Discounts" class="icon">
+      <p class="icon-text">Discounts</p>
+    </div>
+  </div>
+  
