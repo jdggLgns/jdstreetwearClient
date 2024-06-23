@@ -36,16 +36,22 @@
     <input type="checkbox" id="hood" [(ngModel)]="product.sweatshirt.hood" name="hood" class="dialog-form-control">
   </div>
   <div class="dialog-form-group">
-    <label for="category">Category ID</label>
-    <input type="number" id="category" [(ngModel)]="product.category.id" name="category" class="dialog-form-control">
+    <label for="category">Category</label>
+    <select id="category" [(ngModel)]="product.category.id" name="category" class="dialog-form-control">
+      <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+    </select>
   </div>
   <div class="dialog-form-group">
-    <label for="discount">Discount ID</label>
-    <input type="number" id="discount" [(ngModel)]="product.discount.id" name="discount" class="dialog-form-control">
+    <label for="discount">Discount</label>
+    <select id="discount" [(ngModel)]="product.discount.id" name="discount" class="dialog-form-control">
+      <option *ngFor="let discount of discounts" [value]="discount.id">{{ discount.name }}</option>
+    </select>
   </div>
   <div class="dialog-form-group">
-    <label for="supplier">Supplier ID</label>
-    <input type="number" id="supplier" [(ngModel)]="product.supplier.id" name="supplier" class="dialog-form-control">
+    <label for="supplier">Supplier</label>
+    <select id="supplier" [(ngModel)]="product.supplier.id" name="supplier" class="dialog-form-control">
+      <option *ngFor="let supplier of suppliers" [value]="supplier.id">{{ supplier.name }}</option>
+    </select>
   </div>
   <div class="dialog-form-group">
     <label for="stock">Stock</label>
