@@ -5,8 +5,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { CustomerComponent } from './components/customer/customer.component';
-import { EmployeesComponent } from './employees/employees.component';
-import { EmployeeComponent } from './employee/employee.component';
+import { EmployeesComponent } from './components/employees/employees.component';
+import { EmployeeComponent } from './components/employee/employee.component';
 
 
 const routes: Routes = [

@@ -161,6 +161,45 @@ button.btn-secondary:hover {
 .title-logo {
   height: 150px;
 }
+.table-container {
+  max-height: 70vh;
+  overflow-y: auto;
+  margin: 20px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #007BFF;
+  color: white;
+}
+
+.btn {
+  background-color: #007BFF;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.btn img {
+  width: 20px;
+  height: auto;
+}
 
 .center-logo {
   height: 110px; 
@@ -232,4 +271,105 @@ footer {
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* Popup Form Styles */
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.dialog-form-group {
+  margin-bottom: 15px;
+  text-align: left; 
+  width: 100%;
+}
+
+.dialog-form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.dialog-form-control {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 10px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.dialog-title {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #007BFF;
+}
+
+.dialog-button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.dialog-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.button-add {
+  background-color: #3ad506;
+  color: white;
+  padding: 2px 5px;
+  margin-left: 49vw;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.button-add img {
+  width: 45px;
+  height: 45px; 
+}
+.button-CRUD {
+  background-color: transparent;
+  color: white;
+  padding: 2px 5px;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.button-CRUD img {
+  width: 45px;
+  height: 45px; 
+}
+
+
+.dialog-button:hover {
+  background-color: #0056b3;
+}
+
+.dialog-button-secondary {
+  background-color: #6c757d;
+}
+
+.dialog-button-secondary:hover {
+  background-color: #5a6268;
 }

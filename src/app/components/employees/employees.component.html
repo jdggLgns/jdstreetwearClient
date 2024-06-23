@@ -1,0 +1,46 @@
+<div class="navbar">
+  <div class="navbar-left">
+    <button class="btn" routerLink="/admin">Dashboard</button>
+    <button class="btn active">Employees</button>
+    <button class="btn" routerLink="/reports">Reports</button>
+  </div>
+  <div class="navbar-center">
+    <img src="assets/jdstreetwear.png" alt="Logo" class="center-logo">
+  </div>
+  <div class="navbar-right">
+    <img src="assets/user.png" alt="User Icon" class="user-icon">
+    <span>{{ userName }}</span>
+    <button class="btn-logout" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<h1 class="page-title">Employees</h1>
+
+<div class="table-container">
+  <table>
+    <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Job</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.user.firstName}}</td>
+      <td>{{employee.user.lastName}}</td>
+      <td>{{employee.user.email}}</td>
+      <td>{{employee.phone}}</td>
+      <td>{{employee.job}}</td>
+      <td>
+        <button (click)="editEmployee(employee)" class="button-CRUD"><img src="assets/edit.png" alt="Edit"></button>
+        <button (click)="deleteEmployee(employee.id)" class="button-CRUD"><img src="assets/delete.png" alt="Delete"></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <button (click)="addEmployee()" class="button-add"><img src="assets/add.png" alt="Add"></button>
+</div>
