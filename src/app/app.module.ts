@@ -22,6 +22,8 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { DiscountsComponent } from './components/discounts/discounts.component';
 import { AddProductDialogComponent } from './components/add-product-dialog/add-product-dialog.component';
 import { EditProductDialogComponent } from './components/edit-product-dialog/edit-product-dialog.component';
+import { AddDiscountDialogComponent } from './components/add-discount-dialog/add-discount-dialog.component';
+import { EditDiscountDialogComponent } from './components/edit-discount-dialog/edit-discount-dialog.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { EditProductDialogComponent } from './components/edit-product-dialog/edi
     OrdersComponent,
     ProductsComponent,
     AddProductDialogComponent,
-    EditProductDialogComponent
+    EditProductDialogComponent,
+    AddDiscountDialogComponent,
+    EditDiscountDialogComponent
   ],
   imports: [
     BrowserModule,

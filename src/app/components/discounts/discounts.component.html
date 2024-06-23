@@ -1,1 +1,44 @@
-<p>discounts works!</p>
+<div class="navbar">
+    <div class="navbar-left">
+      <button class="btn" routerLink="/employee">Dashboard</button>
+      <button class="btn" routerLink="/products">Products</button>
+      <button class="btn" routerLink="/orders">Orders</button>
+      <button class="btn active" routerLink="/discounts">Discounts</button>
+    </div>
+    <div class="navbar-center">
+      <img src="assets/jdstreetwear.png" alt="Logo" class="center-logo">
+    </div>
+    <div class="navbar-right">
+      <img src="assets/user.png" alt="User Icon" class="user-icon">
+      <span>{{ userName }}</span>
+      <button class="btn-logout" (click)="logout()">Logout</button>
+    </div>
+  </div>
+  
+  <h1 class="page-title">Discounts</h1>
+  
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Discount Name</th>
+          <th>Discount Percentage</th>
+          <th>State</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let discount of discounts">
+          <td>{{ discount.name }}</td>
+          <td>{{ discount.percentage }}%</td>
+          <td>{{ discount.state }}</td>
+          <td>
+            <button (click)="editDiscount(discount)" class="button-CRUD"><img src="assets/edit.png" alt="Edit"></button>
+            <button (click)="deleteDiscount(discount.id)"class="button-CRUD"><img src="assets/delete.png" alt="Delete"></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="addDiscount()" class="button-add"><img src="assets/add.png" alt="Add"></button>
+  </div>
+  

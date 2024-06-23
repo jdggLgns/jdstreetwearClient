@@ -1,0 +1,22 @@
+<h2 class="dialog-title">Add Discount</h2>
+<form class="dialog-container">
+  <div class="dialog-form-group">
+    <label for="name">Discount Name</label>
+    <input type="text" id="name" [(ngModel)]="discount.name" name="name" class="dialog-form-control" required>
+  </div>
+  <div class="dialog-form-group">
+    <label for="percentage">Discount Percentage</label>
+    <input type="number" id="percentage" [(ngModel)]="discount.percentage" name="percentage" class="dialog-form-control" required>
+  </div>
+  <div class="dialog-form-group">
+    <label for="state">State</label>
+    <select id="state" [(ngModel)]="discount.state" name="state" class="dialog-form-control">
+      <option value="active">Active</option>
+      <option value="inactive">Inactive</option>
+    </select>
+  </div>
+  <div class="dialog-button-group">
+    <button type="button" class="dialog-button dialog-button-secondary" (click)="onNoClick()">Cancel</button>
+    <button type="button" class="dialog-button" (click)="onSaveClick()">Save</button>
+  </div>
+</form>
