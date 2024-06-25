@@ -46,6 +46,7 @@ export interface Product {
   inventories: Inventory[];
   tshirt?: Tshirt;
   sweatshirt?: Sweatshirt;
+  image?: string; 
 }
 
 export function createDefaultProduct(): Product {
@@ -77,10 +78,11 @@ export function createDefaultProduct(): Product {
         supplier: { id: 0, name: '' },
         inventories: [],
         tshirt: { id: 0, sleeves: false },
-        sweatshirt: { id: 0, hood: false }
+        sweatshirt: { id: 0, hood: false },
+        image: '' 
       }
     }],
     tshirt: { id: 0, sleeves: false },
-    sweatshirt: { id: 0, hood: false }
-  };
-}
+    sweatshirt: { id: 0, hood: false },
+    image: '' 
+}}

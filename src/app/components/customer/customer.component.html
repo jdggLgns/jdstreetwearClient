@@ -1,4 +1,20 @@
-<div class="container">
-    <h3>Título 1</h3>
+<div class="navbar">
+  <div class="navbar-right">
+    <input type="text" [(ngModel)]="searchQuery" (keyup.enter)="searchProducts()" placeholder="Search for products...">
+    <button (click)="searchProducts()">Search</button>
+    <button class="btn-cart" routerLink="/cart">Shopping Cart</button>
+    <span class="user-details">{{ userName }}</span>
+    <button class="btn-logout" (click)="logout()">Logout</button>
   </div>
-  
+</div>
+
+<h1 class="page-title">Products</h1>
+
+<div class="product-list">
+  <div class="product-item" *ngFor="let product of products" (click)="viewProduct(product.id)">
+    <img [src]="product.image" alt="{{ product.name }}">
+    <div class="product-info">
+      <h3>{{ product.name }}</h3>
+    </div>
+  </div>
+</div>

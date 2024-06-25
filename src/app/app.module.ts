@@ -24,6 +24,8 @@ import { AddProductDialogComponent } from './components/add-product-dialog/add-p
 import { EditProductDialogComponent } from './components/edit-product-dialog/edit-product-dialog.component';
 import { AddDiscountDialogComponent } from './components/add-discount-dialog/add-discount-dialog.component';
 import { EditDiscountDialogComponent } from './components/edit-discount-dialog/edit-discount-dialog.component';
+import { ProductSearchComponent } from './components/product-search/product-search.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { EditDiscountDialogComponent } from './components/edit-discount-dialog/e
     AddProductDialogComponent,
     EditProductDialogComponent,
     AddDiscountDialogComponent,
-    EditDiscountDialogComponent
+    EditDiscountDialogComponent,
+    ProductSearchComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
