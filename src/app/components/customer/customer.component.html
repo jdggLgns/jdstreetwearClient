@@ -1,8 +1,13 @@
 <div class="navbar">
-  <div class="navbar-right">
+  <div class="navbar-left">
     <input type="text" [(ngModel)]="searchQuery" (keyup.enter)="searchProducts()" placeholder="Search for products...">
-    <button (click)="searchProducts()">Search</button>
-    <button class="btn-cart" routerLink="/cart">Shopping Cart</button>
+    <button class="btn-search" (click)="searchProducts()">Search</button>
+  </div>
+  <div class="navbar-right">
+    <button class="btn-cart" routerLink="/cart">
+      <img src="assets/cart.png" alt="Cart">
+      Shopping Cart
+    </button>
     <span class="user-details">{{ userName }}</span>
     <button class="btn-logout" (click)="logout()">Logout</button>
   </div>

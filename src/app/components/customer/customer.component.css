@@ -1,6 +1,25 @@
 .navbar {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-left input {
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  .btn-search {
+    padding: 5px 10px;
+    background-color: orange;
+    border: 1px solid black;
+    color: white;
+    cursor: pointer;
   }
   
   .navbar-right {
@@ -8,13 +27,30 @@
     align-items: center;
   }
   
-  .navbar-right input {
-    padding: 5px;
-    margin-right: 10px;
+  .btn-cart {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    cursor: pointer;
+    background: rgb(255, 183, 0);
+    border: 1px solid black;
   }
   
-  .navbar-right button {
+  .btn-cart img {
+    width: 20px;
+    height: auto;
+    margin-right: 5px;
+  }
+  
+  .user-details {
     margin-left: 10px;
+  }
+  
+  .btn-logout {
+    margin-left: 10px;
+    cursor: pointer;
+    background: red;
+    border: none;
   }
   
   .page-title {
