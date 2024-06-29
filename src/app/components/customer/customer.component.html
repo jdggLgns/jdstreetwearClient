@@ -1,7 +1,13 @@
 <div class="navbar">
   <div class="navbar-left">
-    <input type="text" [(ngModel)]="searchQuery" (keyup.enter)="searchProducts()" placeholder="Search for products...">
-    <button class="btn-search" (click)="searchProducts()">Search</button>
+    <input type="text" [(ngModel)]="searchQuery" (keyup.enter)="filterProducts()" placeholder="Search for products...">
+    <button class="btn-search" (click)="filterProducts()">Search</button>
+    <label class="category-label">Category:</label>
+    <select [(ngModel)]="selectedCategoryId" (change)="filterProducts()">
+      <option *ngFor="let category of categories" [ngValue]="category.id">
+        {{ category.name }}
+      </option>
+    </select>
   </div>
   <div class="navbar-right">
     <button class="btn-cart" routerLink="/cart">
@@ -20,6 +26,7 @@
     <img [src]="product.image" alt="{{ product.name }}">
     <div class="product-info">
       <h3>{{ product.name }}</h3>
+      <p>{{ product.category.name }}</p>
     </div>
   </div>
 </div>

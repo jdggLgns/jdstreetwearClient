@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProductService } from 'src/app/services/product.service';
-import { Product } from 'src/app/models/product';
+import { CategoryService } from 'src/app/services/category.service';
+import { Product, Category } from 'src/app/models/product';
 
 @Component({
   selector: 'app-customer',
@@ -12,38 +13,39 @@ import { Product } from 'src/app/models/product';
 export class CustomerComponent implements OnInit {
   userName: string = '';
   products: Product[] = [];
+  categories: Category[] = [];
+  selectedCategoryId: number = 0;
   searchQuery: string = '';
 
   constructor(
     private router: Router,
     private authService: AuthService,
-    private productService: ProductService
+    private productService: ProductService,
+    private categoryService: CategoryService
   ) {}
 
   ngOnInit(): void {
     const user = this.authService.getUser();
     if (user && user.role === 'customer') {
       this.userName = user.firstName;
-      this.loadAllProducts();
+      this.loadCategories();
+      this.filterProducts();
     } else {
       this.router.navigate(['/login']);
     }
   }
 
-  loadAllProducts(): void {
-    this.productService.getProducts().subscribe(data => {
-      this.products = data;
+  loadCategories(): void {
+    this.categoryService.getCategories().subscribe(data => {
+      this.categories = [{ id: 0, name: 'All' }, ...data];
     });
   }
 
-  searchProducts(): void {
-    if (this.searchQuery) {
-      this.productService.searchProducts(this.searchQuery).subscribe(data => {
-        this.products = data;
-      });
-    } else {
-      this.loadAllProducts();
-    }
+  filterProducts(): void {
+    const categoryId = this.selectedCategoryId !== 0 ? this.selectedCategoryId : undefined;
+    this.productService.searchProducts(this.searchQuery, categoryId).subscribe(data => {
+      this.products = data;
+    });
   }
 
   viewProduct(productId: number): void {
