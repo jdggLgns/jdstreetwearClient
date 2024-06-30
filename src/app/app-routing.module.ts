@@ -10,6 +10,7 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { ProductsComponent } from './components/products/products.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { DiscountsComponent } from './components/discounts/discounts.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'employee', component: EmployeeComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'orders', component: OrdersComponent },
+  { path: 'product/:id', component: ProductDetailComponent },
   { path: 'discounts', component: DiscountsComponent },];
 
 @NgModule({

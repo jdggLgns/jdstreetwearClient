@@ -6,6 +6,8 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f8f9fa;
+  overflow-x: hidden;
+
 }
 
 .container {
@@ -253,6 +255,7 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0;
+  z-index: 10;
 }
 
 .footer-content {

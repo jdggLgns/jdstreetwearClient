@@ -14,7 +14,8 @@ export class LoginComponent {
 
   login() {
     this.authService.login(this.credentials).subscribe(
-      (user: any) => {
+      (response: any) => {
+        const user = response.user;
         switch (user.role) {
           case 'admin':
             this.router.navigate(['/admin']);

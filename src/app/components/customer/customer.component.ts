@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProductService } from 'src/app/services/product.service';
 import { CategoryService } from 'src/app/services/category.service';
+import { CartService } from 'src/app/services/cart.service';
 import { Product, Category } from 'src/app/models/product';
+import { Cart } from 'src/app/models/cart';
 
 @Component({
   selector: 'app-customer',
@@ -12,22 +14,27 @@ import { Product, Category } from 'src/app/models/product';
 })
 export class CustomerComponent implements OnInit {
   userName: string = '';
+  userId: number = 0;
   products: Product[] = [];
   categories: Category[] = [];
   selectedCategoryId: number = 0;
   searchQuery: string = '';
+  cart: Cart | null = null;
+  selectedProduct: Product | null = null;
 
   constructor(
     private router: Router,
     private authService: AuthService,
     private productService: ProductService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
     const user = this.authService.getUser();
     if (user && user.role === 'customer') {
       this.userName = user.firstName;
+      this.userId = user.id;
       this.loadCategories();
       this.filterProducts();
     } else {
@@ -49,7 +56,25 @@ export class CustomerComponent implements OnInit {
   }
 
   viewProduct(productId: number): void {
-    this.router.navigate(['/product', productId]);
+    this.productService.getProductById(productId).subscribe(product => {
+      this.selectedProduct = product; 
+    });
+  }
+
+  closeProductDetail(): void {
+    this.selectedProduct = null; 
+  }
+
+  openCart(): void {
+    if (this.userId) {
+      this.cartService.getCart(this.userId).subscribe(cart => this.cart = cart);
+    } else {
+      console.error('User ID is undefined');
+    }
+  }
+
+  closeCart(): void {
+    this.cart = null;
   }
 
   logout(): void {

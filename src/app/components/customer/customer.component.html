@@ -10,7 +10,7 @@
     </select>
   </div>
   <div class="navbar-right">
-    <button class="btn-cart" routerLink="/cart">
+    <button class="btn-cart" (click)="openCart()">
       <img src="assets/cart.png" alt="Cart">
       Shopping Cart
     </button>
@@ -30,3 +30,6 @@
     </div>
   </div>
 </div>
+
+<app-product-detail *ngIf="selectedProduct" [product]="selectedProduct" (close)="closeProductDetail()"></app-product-detail>
+<app-cart *ngIf="cart" [cart]="cart" (close)="closeCart()"></app-cart>

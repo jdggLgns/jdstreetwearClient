@@ -85,4 +85,5 @@ export function createDefaultProduct(): Product {
     tshirt: { id: 0, sleeves: false },
     sweatshirt: { id: 0, hood: false },
     image: '' 
-}}
+  };
+}
