@@ -57,20 +57,16 @@ export class CustomerComponent implements OnInit {
 
   viewProduct(productId: number): void {
     this.productService.getProductById(productId).subscribe(product => {
-      this.selectedProduct = product; 
+      this.selectedProduct = product;
     });
   }
 
   closeProductDetail(): void {
-    this.selectedProduct = null; 
+    this.selectedProduct = null;
   }
 
   openCart(): void {
-    if (this.userId) {
-      this.cartService.getCart(this.userId).subscribe(cart => this.cart = cart);
-    } else {
-      console.error('User ID is undefined');
-    }
+    this.router.navigate(['/cart']);
   }
 
   closeCart(): void {

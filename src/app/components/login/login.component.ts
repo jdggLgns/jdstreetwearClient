@@ -14,21 +14,28 @@ export class LoginComponent {
 
   login() {
     this.authService.login(this.credentials).subscribe(
-      (response: any) => {
-        const user = response.user;
-        switch (user.role) {
-          case 'admin':
-            this.router.navigate(['/admin']);
-            break;
-          case 'employee':
-            this.router.navigate(['/employee']);
-            break;
-          case 'customer':
+      response => {
+        const user = this.authService.getUser();
+        if (user.role === 'customer') {
+          const customerId = this.authService.getCustomerIdFromStorage();
+          if (customerId) {
             this.router.navigate(['/customer']);
-            break;
-          default:
+          } else {
+            console.error('Customer ID not found');
             this.router.navigate(['/login']);
-            break;
+          }
+        } else {
+          switch (user.role) {
+            case 'admin':
+              this.router.navigate(['/admin']);
+              break;
+            case 'employee':
+              this.router.navigate(['/employee']);
+              break;
+            default:
+              this.router.navigate(['/login']);
+              break;
+          }
         }
       },
       error => alert('Login Failed')

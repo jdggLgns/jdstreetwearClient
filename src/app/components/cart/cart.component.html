@@ -1,0 +1,32 @@
+<div class="navbar">
+  <div class="navbar-center">
+    <img src="assets/jdstreetwear.png" alt="Logo" class="center-logo">
+  </div>
+</div>
+
+<h1 class="page-title">cart</h1>
+<div *ngIf="cart">
+    <table>
+      <tr>
+        <th>Product Name</th>
+        <th>Size</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Color</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let item of cart.items">
+        <td>{{ item.product.name }}</td>
+        <td>{{ item.product.size }}</td>
+        <td>{{ item.product.price | currency }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.product.color }}</td>
+        <td>
+          <button (click)="removeItem(item.product.id)">Remove</button>
+        </td>
+      </tr>
+    </table>
+    <div>Total: {{ getTotal() | currency }}</div>
+    <button (click)="confirmPurchase()">Confirm</button>
+  </div>
+  

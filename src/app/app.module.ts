@@ -26,8 +26,8 @@ import { AddDiscountDialogComponent } from './components/add-discount-dialog/add
 import { EditDiscountDialogComponent } from './components/edit-discount-dialog/edit-discount-dialog.component';
 import { ProductSearchComponent } from './components/product-search/product-search.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
-import { CartComponent } from './cart/cart.component';
-
+import { CartComponent } from './components/cart/cart.component';
+import { FinishPurchaseComponent } from './components/finish-purchase/finish-purchase.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,8 @@ import { CartComponent } from './cart/cart.component';
     EditDiscountDialogComponent,
     ProductSearchComponent,
     ProductDetailComponent,
-    CartComponent
+    CartComponent,
+    FinishPurchaseComponent
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators';
+import { tap, catchError, switchMap } from 'rxjs/operators';
 import { User } from 'src/app/models/user';
 
 @Injectable({
@@ -11,6 +11,7 @@ import { User } from 'src/app/models/user';
 export class AuthService {
   private baseUrl = 'http://localhost:8080/api/auth';
   private userKey = 'auth-user';
+  private customerIdKey = 'customer-id';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -21,9 +22,25 @@ export class AuthService {
           localStorage.setItem(this.userKey, JSON.stringify(response.user));
         }
       }),
+      switchMap(response => {
+        if (response.user.role === 'customer') {
+          return this.getCustomerByUserId(response.user.id).pipe(
+            tap(customer => {
+              localStorage.setItem(this.customerIdKey, customer.id.toString());
+            }),
+            switchMap(() => of(response))
+          );
+        } else {
+          return of(response);
+        }
+      }),
       catchError(this.handleError<any>('login'))
     );
-  }  
+  }
+
+  getCustomerByUserId(userId: number): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/api/customers/userId?userId=${userId}`);
+  }
 
   register(user: User): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/register`, user).pipe(
@@ -34,13 +51,19 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem(this.userKey);
+    localStorage.removeItem(this.customerIdKey);
     this.router.navigate(['/login']);
   }
 
   getUser(): any {
     const user = localStorage.getItem(this.userKey);
     return user ? JSON.parse(user) : null;
-  }  
+  }
+
+  getCustomerIdFromStorage(): number | null {
+    const customerId = localStorage.getItem(this.customerIdKey);
+    return customerId ? parseInt(customerId, 10) : null;
+  }
 
   isAuthenticated(): boolean {
     return this.getUser() !== null;

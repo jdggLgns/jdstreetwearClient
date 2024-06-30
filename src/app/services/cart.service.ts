@@ -11,24 +11,28 @@ export class CartService {
 
   constructor(private http: HttpClient) { }
 
-  getCart(userId: number): Observable<Cart> {
-    return this.http.get<Cart>(`${this.baseUrl}?userId=${userId}`);
+  getCart(customerId: number): Observable<Cart> {
+    return this.http.get<Cart>(`${this.baseUrl}?customerId=${customerId}`);
   }
 
-  addToCart(userId: number, productId: number, quantity: number): Observable<Cart> {
+  addToCart(customerId: number, productId: number, quantity: number): Observable<Cart> {
     let params = new HttpParams();
-    params = params.append('userId', userId.toString());
+    params = params.append('customerId', customerId.toString());
     params = params.append('productId', productId.toString());
     params = params.append('quantity', quantity.toString());
 
     return this.http.post<Cart>(`${this.baseUrl}/add`, null, { params });
   }
 
-  removeFromCart(userId: number, productId: number): Observable<Cart> {
+  removeFromCart(customerId: number, productId: number): Observable<Cart> {
     let params = new HttpParams();
-    params = params.append('userId', userId.toString());
+    params = params.append('customerId', customerId.toString());
     params = params.append('productId', productId.toString());
 
     return this.http.delete<Cart>(`${this.baseUrl}/remove`, { params });
+  }
+
+  clearCart(customerId: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/clear?customerId=${customerId}`);
   }
 }

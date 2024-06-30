@@ -1,0 +1,20 @@
+<div class="navbar">
+    <div class="navbar-center">
+      <img src="assets/jdstreetwear.png" alt="Logo" class="center-logo">
+    </div>
+  </div>
+  
+  <div *ngIf="customer" class="finish-purchase-container">
+    <div class="customer-details">
+      <h2>Finish Purchase</h2>
+      <p><strong>Name:</strong> {{ customer.user.firstName }} {{ customer.user.lastName }}</p>
+      <p><strong>Email:</strong> {{ customer.user.email }}</p>
+      <p><strong>Phone:</strong> {{ customer.phone }}</p>
+      <p><strong>Address:</strong> {{ customer.address }}</p>
+    </div>
+    <div class="wallet-details">
+      <p><strong>Wallet Balance:</strong> {{ customer.wallet | currency }}</p>
+      <button (click)="finalizePurchase()">Confirm Purchase</button>
+    </div>
+  </div>
+  

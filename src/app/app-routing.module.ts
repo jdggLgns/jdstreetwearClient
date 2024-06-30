@@ -11,6 +11,8 @@ import { ProductsComponent } from './components/products/products.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { DiscountsComponent } from './components/discounts/discounts.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { CartComponent } from './components/cart/cart.component';
+import { FinishPurchaseComponent } from './components/finish-purchase/finish-purchase.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,8 +25,11 @@ const routes: Routes = [
   { path: 'employee', component: EmployeeComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'orders', component: OrdersComponent },
+  { path: 'discounts', component: DiscountsComponent },
   { path: 'product/:id', component: ProductDetailComponent },
-  { path: 'discounts', component: DiscountsComponent },];
+  { path: 'cart', component: CartComponent },
+  { path: 'finish-purchase', component: FinishPurchaseComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

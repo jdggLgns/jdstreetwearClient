@@ -16,13 +16,13 @@ export class SigninComponent {
   register() {
     this.user.role = 'customer';
     this.authService.register(this.user).subscribe(
-      (response: any) => {
+      (response) => {
         if (response.status === 201) {
           alert('User registered successfully!');
           this.router.navigate(['/login']);
         }
       },
-      (error: any) => {
+      (error) => {
         alert(`Registration Failed: ${error.statusText}. Message: ${error.message}`);
       }
     );

@@ -1,63 +1,62 @@
 <div class="navbar">
-    <div class="navbar-left">
-      <button class="btn" routerLink="/employee">Dashboard</button>
-      <button class="btn active" routerLink="/products">Products</button>
-      <button class="btn" routerLink="/orders">Orders</button>
-      <button class="btn" routerLink="/discounts">Discounts</button>
-    </div>
-    <div class="navbar-center">
-      <img src="assets/jdstreetwear.png" alt="Logo" class="center-logo">
-    </div>
-    <div class="navbar-right">
-      <img src="assets/user.png" alt="User Icon" class="user-icon">
-      <span>{{ userName }}</span>
-      <button class="btn-logout" (click)="logout()">Logout</button>
-    </div>
+  <div class="navbar-left">
+    <button class="btn" routerLink="/employee">Dashboard</button>
+    <button class="btn active" routerLink="/products">Products</button>
+    <button class="btn" routerLink="/orders">Orders</button>
+    <button class="btn" routerLink="/discounts">Discounts</button>
   </div>
-  
-  <h1 class="page-title">Products</h1>
-  
-  <div class="table-container">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Category</th>
-          <th>Discount</th>
-          <th>Product Name</th>
-          <th>Product Code</th>
-          <th>Color and Size</th>
-          <th>Stock</th>
-          <th>Price</th>
-          <th>Type</th>
-          <th>Details</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let product of products">
-          <td>{{ product.category.name }}</td>
-          <td>{{ product.discount.name }} ({{ product.discount.percentage }}%)</td>
-          <td>{{ product.name }}</td>
-          <td>{{ product.productCode }}</td>
-          <td>{{ product.color }} / {{ product.size }}</td>
-          <td>{{ product.inventories[0].stock }}</td>
-          <td>{{ product.price | currency }}</td>
-          <td>{{ product.type }}</td>
-          <td>
-            <ng-container *ngIf="product.type === 'tshirt' && product.tshirt">
-              Sleeves: {{ product.tshirt.sleeves ? 'Yes' : 'No' }}
-            </ng-container>
-            <ng-container *ngIf="product.type === 'sweatshirt' && product.sweatshirt">
-              Hood: {{ product.sweatshirt.hood ? 'Yes' : 'No' }}
-            </ng-container>
-          </td>
-          <td>
-            <button (click)="editProduct(product)"class="button-CRUD"><img src="assets/edit.png" alt="Edit"></button>
-            <button (click)="deleteProduct(product.id)"class="button-CRUD"><img src="assets/delete.png" alt="Delete"></button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <button (click)="addProduct()" class="button-add"><img src="assets/add.png" alt="Add"></button>
+  <div class="navbar-center">
+    <img src="assets/jdstreetwear.png" alt="Logo" class="center-logo">
   </div>
-  
+  <div class="navbar-right">
+    <img src="assets/user.png" alt="User Icon" class="user-icon">
+    <span>{{ userName }}</span>
+    <button class="btn-logout" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<h1 class="page-title">Products</h1>
+
+<div class="table-container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Discount</th>
+        <th>Product Name</th>
+        <th>Product Code</th>
+        <th>Color and Size</th>
+        <th>Stock</th>
+        <th>Price</th>
+        <th>Type</th>
+        <th>Details</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.category.name }}</td>
+        <td>{{ product.discount.name }} ({{ product.discount.percentage }}%)</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.productCode }}</td>
+        <td>{{ product.color }} / {{ product.size }}</td>
+        <td>{{ product.inventories[0].stock }}</td>
+        <td>{{ product.price | currency }}</td>
+        <td>{{ product.type }}</td>
+        <td>
+          <ng-container *ngIf="product.type === 'tshirt' && product.tshirt">
+            Sleeves: {{ product.tshirt.sleeves ? 'Yes' : 'No' }}
+          </ng-container>
+          <ng-container *ngIf="product.type === 'sweatshirt' && product.sweatshirt">
+            Hood: {{ product.sweatshirt.hood ? 'Yes' : 'No' }}
+          </ng-container>
+        </td>
+        <td>
+          <button (click)="editProduct(product)"class="button-CRUD"><img src="assets/edit.png" alt="Edit"></button>
+          <button (click)="deleteProduct(product.id)"class="button-CRUD"><img src="assets/delete.png" alt="Delete"></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="addProduct()" class="button-add"><img src="assets/add.png" alt="Add"></button>
+</div>

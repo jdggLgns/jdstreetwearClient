@@ -12,21 +12,18 @@ export class ProductDetailComponent {
   @Input() product: Product | undefined;
   @Output() close = new EventEmitter<void>();
   quantity: number = 1;
-  userId: number = 0;
+  customerId: number | null = null;
 
   constructor(
     private cartService: CartService,
     private authService: AuthService
   ) {
-    const user = this.authService.getUser();
-    if (user) {
-      this.userId = user.id;
-    }
+    this.customerId = this.authService.getCustomerIdFromStorage();
   }
 
   addToCart(): void {
-    if (this.product) {
-      this.cartService.addToCart(this.userId, this.product.id, this.quantity).subscribe(() => {
+    if (this.product && this.customerId) {
+      this.cartService.addToCart(this.customerId, this.product.id, this.quantity).subscribe(() => {
         this.close.emit();
       }, error => {
         console.error('Error adding to cart', error);
